@@ -18,7 +18,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://127.0.0.1:5173",
-        "https://spontaneous-maamoul-4ff6d8.netlify.app"
+        "https://policypilotai-ui.onrender.com/"
     ],
     allow_credentials=True,
     allow_methods=["*"],
