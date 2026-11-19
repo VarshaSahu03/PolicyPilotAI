@@ -1,0 +1,57 @@
+﻿├── data
+│   ├── policies
+│   │   ├── Compensation_Policy.pdf
+│   │   ├── HR_Policy.pdf
+│   │   └── Salary_policy.pdf
+│   └── bm25_index.pkl
+├── src
+│   ├── frontend
+│   │   ├── data
+│   │   ├── public
+│   │   │   ├── favicon.svg
+│   │   │   └── icons.svg
+│   │   ├── src
+│   │   │   ├── assets
+│   │   │   │   ├── hero.png
+│   │   │   │   ├── react.svg
+│   │   │   │   └── vite.svg
+│   │   │   ├── api.js
+│   │   │   ├── App.css
+│   │   │   ├── App.jsx
+│   │   │   ├── index.css
+│   │   │   ├── main.jsx
+│   │   │   ├── MarkdownAnswer.css
+│   │   │   └── MarkdownAnswer.jsx
+│   │   ├── .gitignore
+│   │   ├── .oxlintrc.json
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   ├── README.md
+│   │   └── vite.config.js
+│   └── policypilotai
+│       ├── data
+│       ├── hybrid_rag
+│       │   ├── chunking.py
+│       │   ├── keyword_store.py
+│       │   ├── reranker.py
+│       │   ├── retriever.py
+│       │   └── vector_store.py
+│       ├── __init__.py
+│       ├── api.py
+│       ├── evaluation.py
+│       ├── evaluation_results.csv
+│       ├── graph.py
+│       ├── guardrails.py
+│       ├── ingestion.py
+│       ├── llm_gateway.py
+│       └── main.py
+├── .env
+├── .python-version
+├── evaluation_results.csv
+├── package-lock.json
+├── project_structure.txt
+├── pyproject.toml
+├── README.md
+├── requirements.txt
+└── uv.lock

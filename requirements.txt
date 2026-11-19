@@ -1,0 +1,17 @@
+langchain
+langchain-community
+langchain-chroma
+langgraph
+Litellm
+pypdf
+ragas
+chromadb
+rank-bm25
+langchain-google-genai
+langchain-openai
+python-dotenv
+uvicorn
+langchain-groq
+langchain-huggingface
+Sentence-transformers
+streamlit

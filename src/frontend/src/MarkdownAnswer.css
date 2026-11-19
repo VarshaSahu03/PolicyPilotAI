@@ -1,0 +1,173 @@
+
+/* MAIN ANSWER */
+
+.ai-answer {
+  width: 100%;
+  max-width: 800px;
+  color: #ffffff;
+  font-family: Inter, Arial, sans-serif;
+  overflow-wrap: break-word;
+}
+
+/* PARAGRAPH */
+
+.answer-paragraph {
+  color: #ffffff;
+  line-height: 1.2;
+  font-weight: 100;
+}
+
+/* BOLD TEXT */
+
+.answer-bold {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* MAIN HEADINGS */
+
+.answer-heading {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* SUBHEADINGS */
+
+.answer-subheading {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+/* UNORDERED LIST */
+
+.answer-list {
+  list-style-type: disc;
+  padding-left: 25px;
+}
+
+/* ORDERED LIST */
+
+.answer-ordered-list {
+  list-style-type: decimal;
+  padding-left: 28px;
+}
+
+
+/* NESTED LISTS */
+
+.answer-list .answer-list {
+  list-style-type: circle;
+  padding-left: 25px;
+}
+
+.answer-list .answer-list .answer-list {
+  list-style-type: square;
+}
+
+.answer-ordered-list .answer-ordered-list {
+  list-style-type: lower-alpha;
+  padding-left: 25px;
+}
+
+/* PARAGRAPH INSIDE BULLETS */
+
+.answer-list-item > .answer-paragraph {
+  margin-bottom: 6px;
+}
+
+/* TABLE */
+
+.answer-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid #333333;
+  border-radius: 8px;
+}
+
+.answer-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #ffffff;
+  text-align: left;
+}
+
+.answer-table th,
+.answer-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #333333;
+  color: #ffffff;
+}
+
+.answer-table th {
+  font-weight: 700;
+  background: #191919;
+}
+
+/* LINKS */
+
+.answer-link {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* QUOTE */
+
+.answer-quote {
+  padding: 12px 16px;
+  border-left: 2px solid #777777;
+  background: #171717;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+/* CODE */
+
+.answer-code-block {
+  background: #171717;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  padding: 15px;
+  overflow-x: auto;
+  color: #ffffff;
+}
+
+/* DIVIDER */
+
+.answer-divider {
+  border: none;
+  border-top: 1px solid #333333;
+  margin: 24px 0;
+}
+
+/* FIRST AND LAST ELEMENT */
+
+.ai-answer > :first-child {
+  margin-top: 0;
+}
+
+.ai-answer > :last-child {
+  margin-bottom: 0;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .ai-answer {
+    font-size: 14px;
+  }
+
+  .answer-heading {
+    font-size: 17px;
+  }
+
+  .answer-list {
+    padding-left: 22px;
+  }
+
+  .answer-ordered-list {
+    padding-left: 25px;
+  }
+}
