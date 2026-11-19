@@ -1,19 +1,40 @@
 
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from functools import lru_cache
+
 import torch
+from transformers import (
+    AutoModelForSequenceClassification,
+    AutoTokenizer,
+)
 
-model_name = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+MODEL_NAME = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSequenceClassification.from_pretrained(model_name)
 
-model.eval()
+@lru_cache(maxsize=1)
+def load_reranker():
+
+    print("Loading reranker model...")
+
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+
+    model = AutoModelForSequenceClassification.from_pretrained(
+        MODEL_NAME
+    )
+
+    model.eval()
+
+    print("Reranker model loaded successfully.")
+
+    return tokenizer, model
 
 
 def rerank(query, chunks, top_k=5):
 
     if not chunks:
         return []
+
+    # Load model only when reranking is first required
+    tokenizer, model = load_reranker()
 
     pairs = [[query, chunk] for chunk in chunks]
 
@@ -26,6 +47,7 @@ def rerank(query, chunks, top_k=5):
     )
 
     with torch.inference_mode():
+
         scores = model(**inputs).logits.squeeze(-1)
 
     ranked = sorted(
