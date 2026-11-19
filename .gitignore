@@ -21,12 +21,3 @@ build/
 
 # Logs
 *.log
-
-# Local databases and indexes
-chroma_db/
-chroma/
-*.sqlite3
-
-# Private policy documents and indexes
-data/policies/
-data/bm25_index.pkl
