@@ -2,11 +2,23 @@
 import os
 import re
 import pickle
+from pathlib import Path
 from typing import List
 from rank_bm25 import BM25Okapi
 
 
-INDEX_FILE = "./data/bm25_index.pkl"
+# --------------------------------------
+# DATABASE PATH
+# --------------------------------------
+
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+
+DATA_DIR = Path(
+    os.getenv("POLICYPILOT_DATA_DIR", PROJECT_ROOT / "data")
+)
+
+INDEX_FILE = DATA_DIR / "bm25_index.pkl"
+
 
 # Common words that do not help identify relevant documents
 STOPWORDS = {
@@ -18,10 +30,8 @@ STOPWORDS = {
 
 
 def tokenize(text: str) -> List[str]:
-    # Extract words and ignore punctuation and whitespace
     words = re.findall(r"[a-zA-Z]+", text.lower())
 
-    # Remove common words
     return [
         word for word in words
         if word not in STOPWORDS and len(word) > 1
@@ -42,7 +52,7 @@ def build_bm25(documents):
         "documents": documents
     }
 
-    os.makedirs(os.path.dirname(INDEX_FILE), exist_ok=True)
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
 
     with open(INDEX_FILE, "wb") as f:
         pickle.dump(index_data, f)
@@ -74,13 +84,11 @@ def get_bm25_index(chunks=None):
 
 def rebuild_bm25_index():
 
-    # Read existing documents from the old BM25 index
     with open(INDEX_FILE, "rb") as f:
         old_data = pickle.load(f)
 
     documents = old_data["documents"]
 
-    # Build a fresh index using improved tokenization
     return build_bm25(documents)
 
 
